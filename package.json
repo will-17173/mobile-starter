@@ -21,6 +21,7 @@
   "homepage": "https://github.com/will-17173/mobile-starter#readme",
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-imagemin": "^2.2.1",
     "gulp-jshint": "^1.11.0",

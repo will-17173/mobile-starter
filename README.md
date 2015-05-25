@@ -8,3 +8,4 @@
 * srcset
 * video
 * mock
+* SPA

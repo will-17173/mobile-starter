@@ -7,3 +7,4 @@
 * WebP
 * srcset
 * video
+* mock

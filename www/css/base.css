@@ -10,12 +10,30 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 b, strong { font-weight: bold }
 img { max-width: 100%; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; -webkit-touch-callout: none }
 :focus { outline: 0 }
-a { color: #333; text-decoration: none }
-a.active { color: #06c }
+html { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+body { -webkit-touch-callout: none; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; -webkit-text-size-adjust: none; -moz-text-size-adjust: none; text-size-adjust: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; top: 0; right: 0; bottom: 0; left: 0; word-wrap: break-word; text-rendering: optimizeLegibility; -webkit-backface-visibility: hidden; -webkit-user-drag: none; -ms-content-zooming: none; }
+a { -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; }
+a[href]:hover { cursor: pointer; }
+
+/* 改善PRE的阅读体验 */
+pre { white-space: pre-wrap; }
+code, kbd, pre, samp { font-size: 1em; font-family: monospace, serif; }
+
+/* 修正字体，字体大小不能继承*/
+button, input, select, textarea { margin: 0; font-size: 100%; font-family: inherit; outline-offset: 0; outline-style: none; outline-width: 0; -webkit-font-smoothing: inherit; background-image: none; }
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button[disabled], html input[disabled] { cursor: default; }
+button, html input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+textarea { overflow: auto; vertical-align: top; }
+img { -webkit-user-drag: none; }
+input[type="search"] { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; -webkit-appearance: textfield; }
+
+/*不显示不带控制条的AUDIO元素，移除IOS5多余的高度*/
+audio:not([controls]) { display: none; height: 0; }
+@-ms-viewport { width: device-width; }
 .clearfix:before, .clearfix:after { display: table; content: " " }
 .clearfix:after { clear: both }
-.pull-right { float: right !important }
-.pull-left { float: left !important }
 @font-face { font-family: 'Glyphicons Halflings'; src: url('../fonts/glyphicons-halflings-regular.eot'); src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg'); }
 .glyphicon { position: relative; top: 1px; display: inline-block; font-family: 'Glyphicons Halflings'; font-style: normal; font-weight: normal; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .glyphicon-asterisk:before { content: "\2a"; }
@@ -282,14 +300,14 @@ a.active { color: #06c }
 .glyphicon-menu-up:before { content: "\e260"; }
 html { font-size: 62.5% }
 @media only screen and (min-width:481px) {
-	html { font-size: 94% !important }
+    html { font-size: 94% !important }
 }
 @media only screen and (min-width:561px) {
-	html { font-size: 109% !important }
+    html { font-size: 109% !important }
 }
 @media only screen and (min-width:641px) {
-	html { font-size: 125% !important }
-	body { max-width: 640px }
+    html { font-size: 125% !important }
+    body { max-width: 640px }
 }
 body { font-size: 1.2rem; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background-color: #fff; min-width: 320px; margin: 0 auto; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 input { outline: 0; -webkit-box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-appearance: none }
@@ -301,3 +319,21 @@ input:focus, textarea:focus { outline: 0; border: 1px solid #f60 }
 .block { display: block !important }
 .bold { font-weight: bold }
 .hide { display: none !important }
+.pull-right { float: right !important }
+.pull-left { float: left !important }
+
+/* 横条 */
+.bar { box-sizing: border-box; right: 0; left: 0; z-index: 9; width: 100%; height: 4rem; border-width: 0; border-style: solid; border-top: 1px solid transparent; border-bottom: 1px solid #ddd; background-color: white;  /* border-width: 1px will actually create 2 device pixels on retina */    /* this nifty trick sets an actual 1px border on hi-res displays */
+background-size: 0; }
+.bar-fixed { position: fixed; }
+.has-fixed-header { padding-top: 4rem; }
+.bar .title { font-size: 1.6rem; }
+.bar .title-left { text-align: left; }
+.bar .title-right { text-align: right; }
+
+/* 按钮 */
+.button { position: relative; display: inline-block; margin: 0; padding: 0 1.2rem; min-width: 4rem; min-height: 2.2rem; text-align: center; text-overflow: ellipsis; cursor: pointer; }
+.button-block { display: block; clear: both; }
+.button-block:after { clear: both; }
+.button-full, .button-full > .button { display: block; margin-right: 0; margin-left: 0; border-right-width: 0; border-left-width: 0; border-radius: 0; }
+button.button-block, button.button-full, .button-full > button.button, input.button.button-block { width: 100%; }
